@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="seccion-transparencia">
+    <h1>Obligaciones de Transparencia</h1>
+    <p>Bienvenido a la sección de transparencia. Aquí encontrará la información pública del H. Ayuntamiento.</p>
+    
+    <hr>
+
+    <h3>Áreas y Departamentos disponibles:</h3>
+    <ul>
+        {% for area in areas %}
+            <li>
+                <a href="{% url 'detalle_area' area.slug %}">
+                    <strong>{{ area.nombre }}</strong>
+                </a>
+                {% if area.descripcion %}
+                    <br><small>{{ area.descripcion }}</small>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No hay áreas de transparencia registradas aún.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

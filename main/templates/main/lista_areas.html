@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <h1>{{ titulo_seccion }}</h1> <ul>
+        {% for area in areas %}
+            <li>
+                <a href="{% url 'detalle_area' area.slug %}">
+                    {{ area.nombre }}
+                </a>
+            </li>
+        {% empty %}
+            <li>No hay áreas registradas en esta sección.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

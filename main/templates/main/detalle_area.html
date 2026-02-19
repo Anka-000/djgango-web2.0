@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h1>{{ area.nombre }}</h1>
+<h3>Seleccione el tipo de documento:</h3>
+<ul>
+    {% for tipo in tipos %}
+        <li>
+            <a href="{% url 'lista_documentos' area.slug tipo.slug %}">
+                {{ tipo.nombre }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No hay categorías de documentos en esta área.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'inicio' %}">Volver al inicio</a>
+{% endblock %}

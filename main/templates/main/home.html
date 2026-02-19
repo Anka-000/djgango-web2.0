@@ -1,0 +1,15 @@
+<head>
+{% load static %}
+ <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
+</head>
+
+<body>
+{% for ar in areas %}
+<p>{{ar.area_id}}</p>
+<p>{{ar.area_nombre}}</p>
+<p>{{ar.area_descripcion|safe}}</p>
+<br><br>
+{% endfor %}
+</body>
+
+<script src="{% static "tinymce/js/prism.js" %}"></script>

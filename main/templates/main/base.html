@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal Municipal</title>
+    <style>
+        /* Configuramos el body para que ocupe al menos el 100% de la pantalla */
+        body { 
+            font-family: sans-serif; 
+            margin: 0; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header { background-color: #333; padding: 15px; }
+        nav ul { list-style-type: none; margin: 0; padding: 0; overflow: hidden; }
+        nav li { float: left; }
+        nav li a { display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; }
+        nav li a:hover { background-color: #111; }
+        
+        /* El contenedor principal crece para empujar el footer hacia abajo */
+        .container { 
+            padding: 20px; 
+            flex: 1; 
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222; /* Un gris un poco más oscuro que el header */
+            color: #ddd;
+            padding: 30px 20px;
+            margin-top: auto; /* Empuja el footer al fondo */
+            font-size: 0.9em;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around; /* Divide la info en columnas */
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .footer-section {
+            margin: 10px 20px;
+            text-align: center;
+        }
+        .footer-section h4 {
+            color: #fff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-section p {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="https://www.google.com" target="_blank">Ayuntamiento</a></li>
+            <li><a href="{% url 'inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'lista_transparencia' %}">Obligaciones de Transparencia</a></li>
+            <li><a href="{% url 'lista_financiera' %}">Información Financiera</a></li>
+            <li><a href="{% url 'lista_datos_personales' %}">Datos Personales</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Horario de Atención</h4>
+            <p>Lunes a Viernes</p>
+            <p>de 9:00 a 15:00 hrs</p>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Ayuntamiento</h4>
+            <p>Palacio Municipal</p>
+            <p>Santiago Tuxtla, Ver. 95832</p>
+            <p>📞 294 947 0312</p>
+            <p>✉️ transparenciastgver@outlook.com</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

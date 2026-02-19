@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <h1>Datos Personales</h1>
+    <ul>
+        {% for doc in documentos %}
+            <li>
+                {{ doc.titulo }} - 
+                <a href="{{ doc.archivo_pdf.url }}" target="_blank">Ver PDF</a>
+                <br><small>Subido el: {{ doc.fecha_subida|date:"d M Y" }}</small>
+            </li>
+        {% empty %}
+            <li>No hay documentos disponibles.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

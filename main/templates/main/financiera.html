@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="seccion-financiera">
+    <h1>Información Financiera y Contable</h1>
+    <p>Consulta los estados financieros, presupuestos y gastos públicos ordenados por área.</p>
+
+    <hr>
+
+    <div class="lista-financiera">
+        <ul>
+            {% for area in areas %}
+                <li>
+                    <a href="{% url 'detalle_area' area.slug %}">
+                        {{ area.nombre }}
+                    </a>
+                </li>
+            {% empty %}
+                <p>No hay información financiera publicada por el momento.</p>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
